@@ -8,7 +8,7 @@ class HtmlParser(object):
     def _get_new_urls(self, page_url, soup):
         new_urls = set()
         # /item/%E7%88%B1%E5%A5%BD%E8%80%85
-        links = soup.find_all('a', href=re.compile(r"/item/.*"))
+        links = soup.find_all('a', href=re.compile(r"/item/%.*"))
         for link in links:
             new_url = link['href']
             new_full_url = urlparse.urljoin(page_url, new_url)
